@@ -7,7 +7,10 @@ interface DoctorCardProps {
 
 const DoctorCard = ({ doctor }: DoctorCardProps) => {
   return (
-    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow">
+    <div 
+      className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow"
+      data-testid="doctor-card"
+    >
       <div className="flex items-start space-x-4">
         <img
           src={doctor.image || "https://via.placeholder.com/150"}
@@ -18,7 +21,7 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
           }}
         />
         <div className="flex-1">
-          <h3 className="text-xl font-semibold text-gray-900">{doctor.name}</h3>
+          <h3 className="text-xl font-semibold text-gray-900" data-testid="doctor-name">{doctor.name}</h3>
           <div className="mt-1 space-y-2">
             <div className="flex items-center">
               <span className="text-sm text-gray-600">Consultation:</span>
@@ -35,16 +38,17 @@ const DoctorCard = ({ doctor }: DoctorCardProps) => {
                 <span
                   key={index}
                   className="px-2 py-1 text-xs bg-gray-100 text-gray-800 rounded"
+                  data-testid="doctor-specialty"
                 >
                   {specialty}
                 </span>
               ))}
             </div>
             <div className="flex items-center justify-between mt-2">
-              <span className="text-blue-600 font-semibold">
+              <span className="text-blue-600 font-semibold" data-testid="doctor-fee">
                 ${doctor.fees}/visit
               </span>
-              <span className="text-gray-600 text-sm">
+              <span className="text-gray-600 text-sm" data-testid="doctor-experience">
                 {doctor.experienceYears} years exp.
               </span>
             </div>

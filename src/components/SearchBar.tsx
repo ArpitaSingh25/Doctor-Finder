@@ -58,6 +58,7 @@ const SearchBar = ({ doctors, onSearch }: SearchBarProps) => {
           value={query}
           onChange={(e) => handleSearch(e.target.value)}
           className="w-full pl-12 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          data-testid="autocomplete-input"
         />
       </div>
       {showSuggestions && suggestions.length > 0 && (
@@ -67,6 +68,7 @@ const SearchBar = ({ doctors, onSearch }: SearchBarProps) => {
               key={doctor.id}
               onClick={() => handleSuggestionClick(doctor.name)}
               className="px-4 py-2 hover:bg-gray-100 cursor-pointer"
+              data-testid="suggestion-item"
             >
               {doctor.name}
             </li>
